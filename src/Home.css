@@ -1,0 +1,40 @@
+/* home.css */
+body {
+    background-color: #ffebcd; /* Warm beige background color */
+    margin: 0; /* Remove default margin */
+    font-family: Arial, sans-serif; /* Set a default font */
+  }
+  
+  .home-container {
+    display: flex; /* Use Flexbox to arrange content */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between text and image */
+    padding: 20px; /* Add some padding */
+  }
+  
+  .text-container {
+    flex: 1; /* Allow the text container to take available space */
+  }
+  
+  .home-image {
+    min-width: 500px; /* Set minimum width to 500px */
+    max-width: 500px; /* Set maximum width to 500px */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    position: relative; /* Position relative for the pseudo-element */
+  }
+  
+  /* Create a fade effect using a pseudo-element */
+  .home-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom right, rgba(255, 235, 205, 0) 50%, rgba(255, 235, 205, 1) 100%);
+    pointer-events: none; /* Ensure clicks go through to the image */
+  }
+  
+
+  
