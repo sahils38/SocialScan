@@ -14,6 +14,9 @@ export default defineConfig({
     rollupOptions: {
       external: ['playwright-core'],  // Ensure playwright-core is not bundled into the final build
     },
+   
+      outDir: 'dist', // Ensure this is set correctly
+    
   },
 
   ssr: {
