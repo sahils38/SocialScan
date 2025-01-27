@@ -3,14 +3,15 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
+// Use environment variables for Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBEKEyq5yIwSlbYH0MKqsFdScMKC5N2R2g",
-    authDomain: "socialscan-5ae6b.firebaseapp.com",
-    projectId: "socialscan-5ae6b",
-    storageBucket: "socialscan-5ae6b.firebasestorage.app",
-    messagingSenderId: "1007222591439",
-    appId: "1:1007222591439:web:3fb34d7099c1ef60400cba",
-    measurementId: "G-ZB6GCW4QXF"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 const app = initializeApp(firebaseConfig);
