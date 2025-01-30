@@ -21,7 +21,7 @@ app.use(cors({
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
-    "default-src 'self'; font-src 'self' http://socialscan-production.up.railway.app;"
+    "default-src 'self'; font-src 'self' http://localhost:5000;"
   );
   next();
 });
