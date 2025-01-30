@@ -15,6 +15,6 @@ app.use(bodyParser.json());
 app.post('/api/login', loginWithPlaywright);
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`Backend server running at http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is running on port ${PORT}`);
 });
