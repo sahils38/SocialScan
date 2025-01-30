@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node dist/server.js",
     "build": "tsc",
-    "dev": "nodemon --watch src --ext ts --exec ts-node src/server.ts"
+    "dev": "nodemon --watch src --ext ts --exec ts-node src/server.ts",
+    "postinstall": "npx playwright install --with-deps"
   },
   "dependencies": {
     "body-parser": "^1.20.2",
