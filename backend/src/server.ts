@@ -62,7 +62,7 @@ export const loginWithPlaywright = async (req: Request, res: Response) => {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
-  const browser = await chromium.launch({ headless: false});
+  const browser = await chromium.launch({ headless: true});
   const page = await browser.newPage();
   const screenshots: string[] = [];
   const tempDir = path.join(__dirname, 'screenshots');
