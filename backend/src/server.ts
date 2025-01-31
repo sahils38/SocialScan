@@ -62,7 +62,7 @@ export const loginWithPlaywright = async (req: Request, res: Response) => {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({ headless: false});
   const page = await browser.newPage();
   const screenshots: string[] = [];
   const tempDir = path.join(__dirname, 'screenshots');
@@ -98,7 +98,8 @@ export const loginWithPlaywright = async (req: Request, res: Response) => {
     }
     const oneTapUrl = "https://www.instagram.com/accounts/onetap/?next=%2F";
     try {
-      await page.waitForURL(oneTapUrl, { timeout: 30000 });
+      console.log("Before waiting for One Tap page, current URL:", page.url());
+      await page.waitForURL(oneTapUrl, { timeout: 60000 });
       console.log("Navigated to One Tap page successfully.");
     } catch (error) {
       console.error("Failed to navigate to One Tap page:", page.url());
