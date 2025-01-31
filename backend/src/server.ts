@@ -7,7 +7,7 @@ import path from 'path';
 import { PDFDocument } from 'pdf-lib';
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = Number(process.env.PORT) || 5000;
 
 
 // In-memory storage for case results
@@ -201,6 +201,6 @@ app.get('/results/:caseNumber', (req: Request, res: Response) => {
 app.post('/login', loginWithPlaywright);
 
 // Start the server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Server is running on port ${PORT}`);
 });
