@@ -7,7 +7,8 @@ import path from 'path';
 import { PDFDocument } from 'pdf-lib';
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+
 
 // In-memory storage for case results
 const caseResults: Record<string, any> = {};
