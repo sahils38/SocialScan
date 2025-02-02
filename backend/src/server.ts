@@ -61,11 +61,16 @@ export const loginWithPlaywright = async (req: Request, res: Response) => {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
-  const browser = await chromium.launch({ headless: true });
-  const page = await browser.newPage();
+  const browser = await chromium.launch({ headless: true, slowMo: 100 });
+  const context = await browser.newContext({ userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36" });
+  const page = await context.newPage();
   const screenshots: string[] = [];
   const tempDir = path.join(__dirname, 'screenshots');
   const pdfPath = getPdfPath(caseNumber);
+
+
+
+ 
 
   if (!fs.existsSync(tempDir)) {
     fs.mkdirSync(tempDir);
@@ -84,10 +89,14 @@ export const loginWithPlaywright = async (req: Request, res: Response) => {
     }
 
     // Login logic
-    await page.goto(loginUrl);
+    await page.goto(loginUrl, { waitUntil: 'networkidle' });
+    await page.waitForTimeout(2000 + Math.random() * 3000);
+    
     console.log("username input");
     await page.fill('input[name="username"]', username);
+    await page.waitForTimeout(1000 + Math.random() * 2000);
     await page.fill('input[name="password"]', password);
+    await page.waitForTimeout(1000 + Math.random() * 2000);
     await page.click('button[type="submit"]');
     console.log("login button clicked");
     await page.waitForTimeout(5000);
