@@ -86,9 +86,11 @@ export const loginWithPlaywright = async (req: Request, res: Response) => {
 
     // Login logic
     await page.goto(loginUrl);
+    console.log("username input");
     await page.fill('input[name="username"]', username);
     await page.fill('input[name="password"]', password);
     await page.click('button[type="submit"]');
+    console.log(" login button clicked");
     await page.waitForTimeout(5000);
 
     const loginErrorSelector = 'div[role="alert"], .error-message';
