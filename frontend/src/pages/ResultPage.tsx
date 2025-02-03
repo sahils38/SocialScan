@@ -33,13 +33,13 @@ const ResultPage: React.FC = () => {
       try {
         setLoading(true);
         // Make a GET request to your API endpoint using the dynamic caseNumber
-        const response = await axios.get<AnalysisResult>(`http://localhost:5000/results/${caseNumber}`);
+        const response = await axios.get<AnalysisResult>(`https://socialscan-production.up.railway.app/results/${caseNumber}`);
         
         // The response data should match the AnalysisResult interface
         const { caseNumber: resultCaseNumber, platformName, username } = response.data;
         
         // Update the pdfUrl to include the caseNumber for the dynamic download link
-        const updatedPdfUrl = `http://localhost:5000/download/${caseNumber}`;
+        const updatedPdfUrl = `https://socialscan-production.up.railway.app/download/${caseNumber}`;
         
         setResult({
           caseNumber: resultCaseNumber,
