@@ -21,7 +21,7 @@ app.use(cors({
 app.use((req, res, next) => {
   res.setHeader(
     'Content-Security-Policy',
-    "default-src 'self'; font-src 'self' http://localhost:5000;"
+    "default-src 'self'; font-src 'self' https://social-scan.vercel.app;"
   );
   next();
 });
@@ -168,12 +168,12 @@ export const loginWithPlaywright = async (req: Request, res: Response) => {
       caseNumber,
       platformName: platform,
       username,
-      pdfUrl: `http://localhost:${PORT}/download/${caseNumber}`,
+      pdfUrl: `https://socialscan-production.up.railway.app/download/${caseNumber}`,
     };
 
     res.status(200).json({
       message: 'Login successful, screenshots taken, and PDF generated.',
-      downloadLink: `http://localhost:${PORT}/download/${caseNumber}`,
+      downloadLink: `https://socialscan-production.up.railway.app/download/${caseNumber}`,
     });
   } catch (error: any) {
     console.error(error);
