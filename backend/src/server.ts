@@ -162,7 +162,7 @@ export const loginWithPlaywright = async (req: Request, res: Response) => {
     }
         const directMessagesUrl = 'https://www.instagram.com/direct/inbox/';
     await page.goto(directMessagesUrl);
-    await page.waitForTimeout(3000); // Allow time for page to load
+    await page.waitForTimeout(8000); // Allow time for page to load
     const dmScreenshotPath = `${tempDir}/direct-messages-${caseNumber}.png`;
     await page.screenshot({ path: dmScreenshotPath });
     screenshots.push(dmScreenshotPath);
@@ -170,7 +170,7 @@ export const loginWithPlaywright = async (req: Request, res: Response) => {
     // Screenshot for Comments activity
     const commentsUrl = 'https://www.instagram.com/your_activity/interactions/comments';
     await page.goto(commentsUrl);
-    await page.waitForTimeout(3000); // Allow time for page to load
+    await page.waitForTimeout(8000); // Allow time for page to load
     const commentsScreenshotPath = `${tempDir}/comments-${caseNumber}.png`;
     await page.screenshot({ path: commentsScreenshotPath });
     screenshots.push(commentsScreenshotPath);
