@@ -14,7 +14,7 @@ const caseResults: Record<string, any> = {};
 
 // Enable CORS
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://social-scan.vercel.app',
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type'],
 }));
