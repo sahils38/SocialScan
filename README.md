@@ -10,7 +10,7 @@ SocialScan is a web-based tool that allows users to log into social media platfo
 - Secure authentication and data handling
 
 ## Technologies Used
-- **Frontend**: TypeScript, Next.js (Deployed on [Vercel](https://social-scan.vercel.app))
+- **Frontend**: TypeScript, React.js (Deployed on [Vercel](https://social-scan.vercel.app))
 - **Backend**: Node.js, Express, Playwright (Deployed on [Railway](https://socialscan-production.up.railway.app))
 - **Database**: Firebase Authentication (for secure login handling)
 
